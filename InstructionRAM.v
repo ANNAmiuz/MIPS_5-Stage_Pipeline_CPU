@@ -33,7 +33,7 @@ module InstructionRAM
   reg [31:0] RAM [0:512-1];
 
   initial begin
-    $readmemb("machine_code7.txt",RAM);
+    $readmemb("instructions.bin",RAM);
   end
 
   always @(*) begin : InstructionRAM_blockRamFile

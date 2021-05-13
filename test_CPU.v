@@ -5,7 +5,8 @@ module CPU_test;
 //period initialization
 parameter clk_period = 10;  
 reg clk, reset;  
-integer i;
+integer i, fw;
+
 
 //module instantiation
 CPU testedCPU(
@@ -17,11 +18,13 @@ initial begin
     clk = 0; 
     #1 reset = 1'b1;
     #(clk_period / 2) clk = ~clk;
+    #(clk_period / 2) clk = ~clk;
     #1 reset = 1'b0;
     //testedCPU.instrW
     while (testedCPU.instrW !== 32'hffff_ffff) begin
         #(clk_period / 2) clk = ~clk;
-        if((testedCPU.instrF==32'b00100000000000100000000001010100)||(testedCPU.instrD==32'b00100000000000100000000001010100)||(testedCPU.instrE==32'b00100000000000100000000001010100)||(testedCPU.instrM==32'b00100000000000100000000001010100)||(testedCPU.instrW==32'b00100000000000100000000001010100)) begin
+        //j = j + 1;
+        //if((testedCPU.instrF==32'b00100000000000100000000001010100)||(testedCPU.instrD==32'b00100000000000100000000001010100)||(testedCPU.instrE==32'b00100000000000100000000001010100)||(testedCPU.instrM==32'b00100000000000100000000001010100)||(testedCPU.instrW==32'b00100000000000100000000001010100)) begin
             //$display("PC, %d", (testedCPU.PC>>2));
             //#2
             //$display("PCF, %d", (testedCPU.PCF>>2));
@@ -80,14 +83,13 @@ initial begin
             // $display("data in lw address, %b", testedCPU.dataMem.DATA_RAM[testedCPU.ReadDataM>>2]);
             // $display("ReadDataW, %b", testedCPU.ReadDataW);
             //$display("\n");
-        end
-        
     end
-    $display("main memory");
+    //$display("Total clock cycles used: ", j/2);
+    fw = $fopen("result.txt", "w");
     for (i = 0; i < 512; i++) begin
-        $display("%b", testedCPU.dataMem.DATA_RAM[i]);
+        $fwrite(fw,"%b\n", testedCPU.dataMem.DATA_RAM[i]);
+        //$display("%b", testedCPU.dataMem.DATA_RAM[i]);
     end
-    $display("\n");
     // $display("final register file:");
     // for (i = 0; i < 32; i++) begin
     //     $display("%b", testedCPU.registers.register[i]);
