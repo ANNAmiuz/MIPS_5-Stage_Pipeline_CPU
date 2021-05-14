@@ -46,15 +46,15 @@ module ALU
 
         SLL: result <= srcB << shamt;
 
-        SLLV: result <= srcB << srcA;
+        SLLV: result <= srcB << srcA[4:0];
 
         SRL: result <= srcB >> shamt;
 
-        SRLV: result <= srcB >> srcA;
+        SRLV: result <= srcB >> srcA[4:0];
 
         SRA: result <= $signed(srcB) >>> shamt;
 
-        SRAV: result <= $signed(srcB) >>> srcA;
+        SRAV: result <= $signed(srcB) >>> srcA[4:0];
 
         XOR: result <= srcA ^ srcB;
 
