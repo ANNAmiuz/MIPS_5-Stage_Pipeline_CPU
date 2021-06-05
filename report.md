@@ -1,6 +1,6 @@
 # Project 3 Report
 *MIPS 5 Stage Pipeline CPU: **Full hazards solved** with forwarding & stalling.*
-Huang Yingyi (119010114). CSC 3050 Computer Architecture Spring 2021.
+
 
 ## 0. How to Run
 * #### File Tree:
