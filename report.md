@@ -64,6 +64,7 @@ The results in "**result.txt**", are all the data (512) in **MainMemory** after 
 ## 2. Data Path
 
 <img src="./x.jpg" alt="Datapath" title="Data Path" style="zoom: 50%;" />
+
 The data path in *tutorial 11* is modified in this implementation. In my implementation, the ```control unit``` was placed at the **IF** stage, which simplifies the hazard solving. Units for **Jump** instructions were added, such as the target address calculation and one multiplexer for sources of PC. As for **jal** instruction, the *return address* will be passed to the **WB** stage as an alternative for **ResultW**. **StallF**, **FlushD**, **ForwardAD**, **ForwardBD**, **ForwardAE** and **ForwardBE** are used to solve hazards.
 
 ## 3. Implementation Ideas
