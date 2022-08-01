@@ -1,4 +1,4 @@
-# Project 3 Report
+# Project Explanation
 *MIPS 5 Stage Pipeline CPU: **Full hazards solved** with forwarding & stalling.*
 
 
